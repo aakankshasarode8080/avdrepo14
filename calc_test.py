@@ -1,4 +1,9 @@
-import pytest
+try:
+    import pytest
+except ImportError:
+    import sys
+    raise ImportError("pytest is not installed. Install it with: pip install pytest") from None
+
 from calc import add, subtract, multiply, divide    
 def test_add():
     assert add(2, 3) == 5
